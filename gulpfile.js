@@ -82,11 +82,13 @@ gulp.task('copy', [
 
 gulp.task('copy:index.html', function () {
     return gulp.src(dirs.src + '/index.html')
-                .pipe(replace('main.js', 'main-min.js'))
-                .pipe(replace('../node_modules/jquery/dist/jquery.min.js', 'js/vendor/jquery-1.12.0.min.js'))
-                .pipe(replace('../node_modules/jquery.terminal/js/jquery.terminal-0.9.3.min.js' , 'js/vendor/jquery.terminal-0.9.3.min.js'))
-                .pipe(replace('../node_modules/jquery.terminal/js/jquery.mousewheel-min.js', 'js/vendor/jquery.mousewheel-min.js'))
-                .pipe(gulp.dest(dirs.dist));
+        .pipe(replace('main.js', 'main-min.js'))
+        .pipe(replace('../node_modules/jquery/dist/jquery.min.js', 'js/vendor/jquery-1.12.0.min.js'))
+        .pipe(replace('../node_modules/jquery.terminal/js/jquery.terminal-0.9.3.min.js', 'js/vendor/jquery.terminal-0.9.3.min.js'))
+        .pipe(replace('../node_modules/jquery.terminal/js/jquery.mousewheel-min.js', 'js/vendor/jquery.mousewheel-min.js'))
+        .pipe(replace('../node_modules/normalize.css/normalize.css', 'css/normalize.css'))
+        .pipe(replace('../node_modules/jquery.terminal/css/jquery.terminal.css', 'css/jquery.terminal.css'))
+        .pipe(gulp.dest(dirs.dist));
 });
 
 gulp.task('copy:jquery', function () {
