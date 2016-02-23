@@ -65,7 +65,7 @@ gulp.task('archive:zip', function (done) {
 
 // Clean Output Directory
 gulp.task('clean', function (cb) {
-    return gulp.src(['dist/*’, ‘!dist/{.git,.git/**,README.md}'])
+    return gulp.src(['dist/*', '!dist/{.git,.git/**,README.md}'])
      .pipe(clean());
      });
 
@@ -83,7 +83,10 @@ gulp.task('copy', [
 gulp.task('copy:index.html', function () {
     return gulp.src(dirs.src + '/index.html')
                 .pipe(replace('main.js', 'main-min.js'))
-               .pipe(gulp.dest(dirs.dist));
+                .pipe(replace('../node_modules/jquery/dist/jquery.min.js', 'js/vendor/jquery-1.12.0.min.js'))
+                .pipe(replace('../node_modules/jquery.terminal/js/jquery.terminal-0.9.3.min.js' , 'js/vendor/jquery.terminal-0.9.3.min.js'))
+                .pipe(replace('../node_modules/jquery.terminal/js/jquery.mousewheel-min.js', 'js/vendor/jquery.mousewheel-min.js'))
+                .pipe(gulp.dest(dirs.dist));
 });
 
 gulp.task('copy:jquery', function () {
