@@ -20,4 +20,4 @@ var initShell = function() {
     });
 };
 
-setTimeout(initShell, 6000);
+setTimeout(initShell, 6000) // same duration as animated typing
